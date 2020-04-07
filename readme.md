@@ -1,5 +1,8 @@
 ##Execute from shell:
-```pip3 install -r requirements.txt && pytest --elogin=<user_login> --epass=<user_pass>```
+
+```
+pip3 install -r requirements.txt && pytest --elogin=<user_login> --epass=<user_pass>
+```
 <br>
 
 __Build need a user credentials, so without them an exception will e raised.__
