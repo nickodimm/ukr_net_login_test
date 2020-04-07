@@ -3,15 +3,19 @@ import os
 from selenium import webdriver
 
 from src.ukr_net import UkrNet
-from utils.logger import WebDrLogger
+# from utils.logger import WebDrLogger
 
 
 def pytest_addoption(parser):
     parser.addoption("--url", action="store", default='https://ukr.net/', help="Url for navigate to")
+    parser.addoption("--elogin", action="store", default=None, help="User email to login")
+    parser.addoption("--epass", action="store", default=None, help="User password to login")
 
 
 def pytest_configure(config):
     os.environ['url'] = config.getoption('--url')
+    os.environ['login'] = config.getoption('--elogin')
+    os.environ['pwd'] = config.getoption('--epass')
 
 
 @pytest.fixture(scope="class")

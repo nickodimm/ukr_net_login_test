@@ -1,6 +1,8 @@
 import pytest
+import os
 
-user = {"login": "", "pwd": ""}
+
+user = {"login": os.getenv("login"), "pwd": os.getenv("pwd")}
 
 
 @pytest.mark.usefixtures("ukr_net")
