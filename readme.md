@@ -1,7 +1,7 @@
 ## Execute from shell:
 
 ```
-pip3 install -r requirements.txt && pytest --elogin=<user_login> --epass=<user_pass>
+pip3.6 install -r requirements.txt && python3.6 -m pytest --elogin=<user_login> --epass=<user_pass>
 ```
 <br>
 
