@@ -3,7 +3,6 @@ import os
 from selenium import webdriver
 
 from src.ukr_net import UkrNet
-# from utils.logger import WebDrLogger
 
 
 def pytest_addoption(parser):
@@ -41,10 +40,3 @@ def ukr_net(request):
     ukr_net = UkrNet(request.cls.driver, request.config.option.url)
     request.cls.ukr_net = ukr_net
     yield
-#
-#
-# @pytest.fixture(scope="class")
-# def logger(request):
-#     logger = WebDrLogger("ukr.net")
-#     request.cls.logger = logger
-#     yield
