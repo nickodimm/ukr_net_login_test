@@ -2,8 +2,6 @@ import pytest
 import os
 from selenium import webdriver
 
-from src.ukr_net import UkrNet
-
 
 def pytest_addoption(parser):
     parser.addoption("--url", action="store", default='https://ukr.net/', help="Url for navigate to")
@@ -20,8 +18,8 @@ def pytest_configure(config):
     os.environ['pwd'] = config.getoption('--epass')
 
 
-@pytest.fixture(scope="class")
-def driver(request):
+@pytest.yield_fixture()
+def browser():
     chrome_options = webdriver.ChromeOptions()
     if os.getenv('headless') == 'true':
         chrome_options.add_argument('--headless')
@@ -29,14 +27,5 @@ def driver(request):
     chrome_options.add_argument('--disable-dev-shm-usage')
     driver = webdriver.Chrome(os.path.join('./chromedriver'), options=chrome_options)
     driver.set_window_size(1366, 900)
-    request.cls.driver = driver
-    yield
+    yield driver
     driver.quit()
-
-
-@pytest.mark.usefixtures("driver")
-@pytest.fixture(scope="class")
-def ukr_net(request):
-    ukr_net = UkrNet(request.cls.driver, request.config.option.url)
-    request.cls.ukr_net = ukr_net
-    yield

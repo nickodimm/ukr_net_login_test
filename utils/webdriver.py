@@ -15,7 +15,6 @@ class WebDriver(object):
         self.logger = WebDrLogger(__name__)
         self.by = By
         self.timeout = timeout or 15
-        super(WebDriver, self).__init__()
 
     def go_to_url(self, url):
         self.driver.get(url)
