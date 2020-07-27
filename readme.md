@@ -8,7 +8,7 @@ pip3.6 install -r requirements.txt && python3.6 -m pytest --elogin=<user_login> 
 
 __Build need a user credentials, so without them an exception will be raised.__
 
-__To run test with the browser window add additional argument to run pytest command:__
+__To run test with the browser window - add additional argument to run pytest command:__
 ```
 --headless=<any_value_differ_from_true>
 ```
